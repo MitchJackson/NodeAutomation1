@@ -22,7 +22,7 @@ describe("challenge1 suite", function(){
     });
  
 
-    after(function () {
-        return driver.quit();
+    after(async function () {
+        return await driver.quit();
     });
 });

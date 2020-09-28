@@ -28,13 +28,9 @@ describe("Asserts suite", function(){
         let porscheFound = false;
         await driver.wait(until.elementLocated(copart.MakeColumn), 5000);
         const elArray = await driver.findElements(copart.MakeColumn);
-        const elTextArray = await elArray.map(async (el) => {
-            return await el.getText();
-        })
 
         elArray.forEach(async (el) => {
             const elText = await el.getText();
-            console.log(elText);
 
             if (elText == "PORSCHE"){
                 porscheFound = true;
@@ -48,7 +44,7 @@ describe("Asserts suite", function(){
     });
  
 
-    after(function () {
-        return driver.quit();
+    after(async function () {
+        return await driver.quit();
     });
 });
